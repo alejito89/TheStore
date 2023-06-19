@@ -1,9 +1,14 @@
 function showNotification(event) {
     event.preventDefault();
-    // Enviar los datos del formulario al servidor para crear el producto
-    // Mostrar la notificación después de crear el producto correctamente
+    // Send form data to server to create product
+    // Show notification after successfully creating product
     document.getElementById("notification").style.display = "block";
-    setTimeout(function(){ 
+    setTimeout(function() {
         document.getElementById("notification").style.display = "none";
+        resetForm();
     }, 3000);
+}
+
+function resetForm() {
+    document.getElementById("productForm").reset();
 }
