@@ -4,17 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheStore</title>
+    <title>New Product</title>
+    <style>
+        .notification {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display:none;
+        }
+    </style>
 </head>
 <body>
-    
-    <img src="./images/thestore.png" alt="Imagen de un logo iu">
-    <ul>
-        <li>Products</li>
-        <li>Car</li>
-        <li>Login</li>
-        <li><a href="newProduct.html" target="_blank">New Product</a></li>
-    </ul>
-    
+    <form action="/signup" method="post" onsubmit="showNotification(event)">
+        <img src="./images/thestore.png" alt="Imagen logo The Store">
+        <p>
+            <label>Name</label><br>
+            <input type="text" name="name" required>
+        </p>
+        <p>
+            <label>Price</label><br>
+            <input type="number" name="price" required>
+        </p>
+        <p>
+            <label>Inventory</label><br>
+            <input type="text" name="inventory" required>
+        </p>
+        <p>
+            <button>Create Product</button>
+            <button type="reset">Reset form</button>
+        </p>
+    </form>
+    <div class="notification" id="notification">
+        Product created successfully
+    </div>
+    <script>
+        function showNotification(event) {
+            event.preventDefault();
+            // Send form data to server to create product
+            // Show notification after successfully creating product
+            document.getElementById("notification").style.display = "block";
+            setTimeout(function(){ 
+                document.getElementById("notification").style.display = "none";
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
